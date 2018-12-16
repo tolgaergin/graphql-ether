@@ -2,7 +2,7 @@ import express from 'express';
 import { createServer } from 'http';
 import SERVER from './schema';
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const APP = express();
 
