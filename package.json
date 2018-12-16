@@ -1,0 +1,26 @@
+{
+  "name": "graphql-ether",
+  "version": "1.0.0",
+  "description": "graphql",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js --exec ./node_modules/babel-cli/bin/babel-node.js index.js",
+    "deneme": "./node_modules/nodemon/bin/nodemon.js --exec ./node_modules/babel-cli/bin/babel-node.js deneme.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.2.0",
+    "axios": "^0.18.0",
+    "ethers": "^4.0.20",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2",
+    "merge-graphql-schemas": "^1.5.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "nodemon": "^1.18.6"
+  }
+}
