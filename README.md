@@ -14,6 +14,8 @@ local ethereum development server
 graphql ether
 https://teamfox-ethereum-graphql.herokuapp.com/graphql
 
+sharable: https://graphqlbin.com/v2/nxoXh3
+
 ### Heroku
 
 heroku git:clone -a teamfox-ethereum-graphql
