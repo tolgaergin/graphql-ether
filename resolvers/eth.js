@@ -17,22 +17,36 @@ export default {
     ethereumBlock: async (parent, { hash, number }, context) => {
       const blockIdentifier = hash ? hash : number;
       const block = await provider.getBlock(blockIdentifier);
-      return block;
+      return {
+        ...block,
+        difficulty: block.difficulty.toString(),
+        gasLimit: block.gasLimit.toString(10),
+        gasUsed: block.gasUsed.toString(10)
+      };
     },
 
     getTransaction: async (parent, { hash }, context) => {
       const transaction = await provider.getTransaction(hash);
-      return transaction;
+      return {
+        ...transaction,
+        gasPrice: transaction.gasPrice.toString(10),
+        gasLimit: transaction.gasLimit.toString(10),
+        value: utils.commify(utils.formatEther(transaction.value))
+      };
     },
 
     getTransactionReceipt: async (parent, { hash }, context) => {
       const transaction = await provider.getTransactionReceipt(hash);
-      return transaction;
+      return {
+        ...transaction,
+        gasUsed: transaction.gasUsed.toString(10),
+        cumulativeGasUsed: transaction.cumulativeGasUsed.toString(10)
+      };
     },
 
     getBalance: async (parent, { address, blockTag = 'latest' }, context) => {
       const balance = await provider.getBalance(address);
-      return utils.formatEther(balance);
+      return utils.commify(utils.formatEther(balance));
     }
   },
 
@@ -106,7 +120,7 @@ export default {
       subscribe: async (parent, args, context) => {
         await provider.on(args.address, balance => {
           pubsub.publish('LISTEN_BALANCE', {
-            balanceChanged: utils.formatEther(balance)
+            balanceChanged: utils.commify(utils.formatEther(balance))
           });
         });
 

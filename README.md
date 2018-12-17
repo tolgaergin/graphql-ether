@@ -1,4 +1,15 @@
+# nice document
+
+https://www.robinwieruch.de/graphql-apollo-server-tutorial
+
+# ethersjs document
+
+https://docs.ethers.io/ethers.js/html/cookbook-accounts.html?highlight=sendtransaction
+
 # graphql-ether
+
+local ethereum development server
+\$ ganache-cli
 
 graphql ether
 https://teamfox-ethereum-graphql.herokuapp.com/graphql

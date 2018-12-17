@@ -22,13 +22,15 @@ export default gql`
 
   type Transaction {
     hash: String
+    blockHash: String
     blockNumber: Int
     transactionIndex: Int
+    confirmations: Int
     from: String
     to: String
-    value: Float
-    gasPrice: Float
-    gasLimit: Float
+    gasPrice: String
+    gasLimit: String
+    value: String
     nonce: Int
     data: String
     r: String
@@ -40,12 +42,15 @@ export default gql`
   type TransactionReceipt {
     contractAddress: String
     transactionIndex: Int
-    gasUsed: Float
+    gasUsed: String
+    logsBloom: String
     blockHash: String
     transactionHash: String
-    cumulativeGasUsed: Float
-    byzantium: Boolean
+    blockNumber: Int
+    confirmations: Int
+    cumulativeGasUsed: String
     status: Int
+    byzantium: Boolean
   }
 
   type EthereumBlock {
@@ -54,7 +59,7 @@ export default gql`
     number: Int
     timestamp: Int
     nonce: String
-    difficulty: Int
+    difficulty: String
     gasLimit: String
     gasUsed: String
     miner: String
